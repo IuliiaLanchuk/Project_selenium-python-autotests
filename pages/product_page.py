@@ -20,3 +20,12 @@ class ProductPage(BasePage):
         print(product_price.text + "||" + basket_price.text)
 
         assert product_price.text == basket_price.text, "Basket price not equal to product price"
+
+    def should_not_be_success_message_after_adding_product_to_basket(self):
+        assert self.is_not_element_present(*ProductPageLocators.MESSAGE_AFTER_PRODUCT_ADD), \
+            "Success message is presented, but should not be"
+
+    def should_not_be_success_message_after_adding_product_to_basket_2(self):
+        assert self.is_disappeared(*ProductPageLocators.MESSAGE_AFTER_PRODUCT_ADD), \
+            "Success message is presented, but should not be"
+
