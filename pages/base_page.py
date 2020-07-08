@@ -43,6 +43,10 @@ class BasePage():
 	def should_be_login_link(self):
 		assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
+	def go_to_basket_page(self):
+		link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
+		link.click()
+
 	# элемент не появляется на странице в течение заданного времени. Упадет, как только увидит искомый элемент. Не появился:тест зеленый.
 	def is_not_element_present(self, how, what, timeout=4):
 		try:

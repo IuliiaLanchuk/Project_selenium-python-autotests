@@ -4,8 +4,8 @@ from .locators import ProductPageLocators
 
 class ProductPage(BasePage):
     def add_product_to_basket(self):
-        button_product_to_basket = self.browser.find_element(*ProductPageLocators.BUTTON_PRODUCT_TO_BASKET)
-        button_product_to_basket.click()
+        button_add_product_to_basket = self.browser.find_element(*ProductPageLocators.BUTTON_ADD_PRODUCT_TO_BASKET)
+        button_add_product_to_basket.click()
 
     def should_be_message_about_product_add(self):
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME)
