@@ -47,6 +47,12 @@ class BasePage():
 		link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
 		link.click()
 
+	def go_to_product_page(self):
+		link = self.browser.find_element(*BasePageLocators.ALL_BOOKS_LINK)
+		link.click()
+		our_book_page = self.browser.find_element(*BasePageLocators.PRODUCT_PAGE_LINK)
+		our_book_page.click()
+
 	# элемент не появляется на странице в течение заданного времени. Упадет, как только увидит искомый элемент. Не появился:тест зеленый.
 	def is_not_element_present(self, how, what, timeout=4):
 		try:
@@ -63,3 +69,8 @@ class BasePage():
 		except TimeoutException:
 			return False
 		return True
+
+#проверка того, что пользователь залогинен
+	def should_be_authorized_user(self):
+		assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+																	 " probably unauthorised user"
